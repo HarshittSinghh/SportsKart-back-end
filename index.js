@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 // Connect to MongoDB database
-mongoose.connect("https://sportskart.onrender.com", {
+mongoose.connect("mongodb://127.0.0.1:27017/employee", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
