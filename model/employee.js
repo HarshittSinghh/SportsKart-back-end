@@ -1,10 +1,24 @@
 const mongoose = require("mongoose");
+mongoose
+  .connect("mongodb://0.0.0.0:27017/register")
+  .then(() => {
+    console.log("MongoDB Connected...!!");
+  })
+  .catch(() => {
+    console.log("failed");
+  });
 
-const EmployeeSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  password: String,
+const newSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
 });
 
-const EmployeeModel = mongoose.model("Employee", EmployeeSchema);
-module.exports = EmployeeModel;
+const collection = mongoose.model("collection", newSchema);
+
+module.exports = collection;
